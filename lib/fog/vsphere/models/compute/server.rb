@@ -72,12 +72,12 @@ module Fog
 
         def vm_reconfig_memory(options = {})
           requires :instance_uuid, :memory
-          service.vm_reconfig_memory('instance_uuid' => instance_uuid, 'memory' => memory_mb)
+          service.vm_reconfig_memory('instance_uuid' => instance_uuid, 'memory' => options[:memory_mb])
         end
 
         def vm_reconfig_cpus(options = {})
           requires :instance_uuid, :cpus, :corespersocket
-          service.vm_reconfig_cpus('instance_uuid' => instance_uuid, 'cpus' => cpus, 'corespersocket' => corespersocket)
+          service.vm_reconfig_cpus('instance_uuid' => instance_uuid, 'cpus' => options[:cpus], 'corespersocket' => options[:corespersocket])
         end
 
         def vm_reconfig_hardware(hardware_spec, options = {})
